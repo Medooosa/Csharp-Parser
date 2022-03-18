@@ -4,7 +4,7 @@ using System.IO;
 using System.Text.RegularExpressions;
 
 namespace ConsoleApp1 {
-    class ParserBase {
+    public class ParserBase {
 
         protected string pattern = "";
         protected string substitution = "";
