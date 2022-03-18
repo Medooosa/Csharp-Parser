@@ -4,24 +4,15 @@ using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace ConsoleApp1
-{
-    class BiographiesAListParser
-    {
-        private string testFile = @"E:\Big movie files\Csharp-Parser\Csharp Parser\ConsoleApp1\Biographiesactortestfile.txt";
-        private string fileLocation;
-        private string fileMap = @"..\..\..\testfiles\";
-        private string fileName = @"..\..\..\testfiles\editedactorbiographies.csv";
-        public BiographiesAListParser(string fileLocation = @"E:\Big movie files\biographies.list")
-        {
-            this.fileLocation = fileLocation;
+namespace ConsoleApp1{
+
+    public class BiographiesAListParser : ParserBase{
+
+        public BiographiesAListParser(string fileLocation = @"E:\Big movie files\biographies.list", string newFileName = @"..\..\..\testfiles\editedactorbiographies.csv") : base(fileLocation, newFileName) {
+            this.fileMap = @"..\..\..\testfiles\";
         }
-        public string GetFileLocation { get { return fileLocation; } }
-        public string GetFileName { get { return fileName; } }
-        public void SetFileLocation(string fileLocation) { this.fileLocation = fileLocation; }
-        public void SetFileName(string fileName) { this.fileName = fileMap + fileName + "csv"; }
-        public void RunParser()
-        {
+
+        public override void RunParser(){
             string line;
             StreamReader sr = new StreamReader(fileLocation, System.Text.Encoding.GetEncoding(28591));
             StreamWriter sw = new StreamWriter(fileName);

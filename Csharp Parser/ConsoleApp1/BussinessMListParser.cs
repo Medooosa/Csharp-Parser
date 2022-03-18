@@ -8,14 +8,15 @@ namespace ConsoleApp1 {
 
     public class BussinessMListParser : ParserBase {
         
-        public BussinessMListParser(string fileLocation = @"business.list", string newFileName = @"business.csv") : base(fileLocation, newFileName){
+        public BussinessMListParser(string fileLocation = @"business.list", string newFileName = @"business") : base(fileLocation, newFileName){
+            this.fileMap = @"..\..\..\testfiles\";
         }
 
         public override void RunParser(){
             string line;
             StreamReader sr = new StreamReader(this.fileLocation, System.Text.Encoding.GetEncoding(28591));
             StreamWriter sw = new StreamWriter(this.fileName);
-            sw.WriteLine(string.Format("{0}¤{1}", "Name", "Budget"));
+            sw.WriteLine("Name¤Budget");
             string[] nameAndBudget = new string[2];
             while ((line = sr.ReadLine()) != null){
                 int temp = line.Length;
