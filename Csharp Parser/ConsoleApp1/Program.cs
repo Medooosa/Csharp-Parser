@@ -9,40 +9,40 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            //string patternMovies = @"^(?![\""])(.*).(\([0-9,?,/,A-Z]{4,11}\)).((\([a-z,A-Z,?]{1,}\))|(.*)).*([0-9,?]{4})";
-            //string patternSeries = @"(\"".*\"").*(\([0-9,?,/,A-Z]{4,11}\)).((({.*}) ({.*})|({.*}))|(\t))\t+([0-9,?,-]{4,9})";
-            //string substitutionMovies = "$1¤$2¤$4¤$5¤$6";
-            //string substitutionSeries = "$1¤$2¤$5$7¤$6¤$9";
-            //string movieTestFile = @"E:\Big movie files\Csharp-Parser\Csharp Parser\ConsoleApp1\Moviestestfile.txt";
-            //string movieActorFile = @"E:\Big movie files\movies.list";
-            //string startLineMovies = "TITLE¤STARTYEAR¤ATTRIBUTE¤NOTE¤ENDYEAR";
-            //string startLineSeries = "TITLE¤STARTYEAR¤TITLESERIES¤NOTE¤RUNTIMEYEAR/ENDYEAR";
-            //string editedMoviesCsv = @"..\..\..\testfiles\editedmovies.csv";
-            //string editedSeriesCsv = @"..\..\..\testfiles\editedseries.csv";
-            //StreamReader sr = new StreamReader(movieActorFile,System.Text.Encoding.GetEncoding(28591));
-            //StreamWriter sw = new StreamWriter(editedSeriesCsv);
+            string patternMovies = @"^(?![\""])(.*).(\([0-9,?,/,A-Z]{4,11}\)).((\([a-z,A-Z,?]{1,}\))|(.*)).*([0-9,?]{4})";
+            string patternSeries = @"(\"".*\"").*(\([0-9,?,/,A-Z]{4,11}\)).((({.*}) ({.*})|({.*}))|(\t))\t+([0-9,?,-]{4,9})";
+            string substitutionMovies = "$1¤$2¤$4¤$5¤$6";
+            string substitutionSeries = "$1¤$2¤$5$7¤$6¤$9";
+            string movieTestFile = @"E:\Big movie files\Csharp-Parser\Csharp Parser\ConsoleApp1\Moviestestfile.txt";
+            string movieActorFile = @"E:\Big movie files\movies.list";
+            string startLineMovies = "TITLE¤STARTYEAR¤ATTRIBUTE¤NOTE¤ENDYEAR";
+            string startLineSeries = "TITLE¤STARTYEAR¤TITLESERIES¤NOTE¤RUNTIMEYEAR/ENDYEAR";
+            string editedMoviesCsv = @"..\..\..\testfiles\editedmovies.csv";
+            string editedSeriesCsv = @"..\..\..\testfiles\editedseries.csv";
+            StreamReader sr = new StreamReader(movieActorFile, System.Text.Encoding.GetEncoding(28591));
+            StreamWriter sw = new StreamWriter(editedSeriesCsv);
 
-            //sw.WriteLine(startLineSeries);
+            sw.WriteLine(startLineSeries);
 
-            //RegexOptions options = RegexOptions.Singleline;
-            //Regex regexPattern = new Regex(patternSeries, options);
+            RegexOptions options = RegexOptions.Singleline;
+            Regex regexPattern = new Regex(patternSeries, options);
 
-            //string result = string.Empty, line;
-            //while ((line = sr.ReadLine()) != null )
-            //{
-            //    Match m = Regex.Match(line, patternSeries, options);
-            //    if (m.Success)
-            //    {
-            //        result = m.Value;
-            //        result = regexPattern.Replace(result, substitutionSeries);
-            //        result = Regex.Replace(result, @"\t+", ""); //om files tabs te removen
-            //        sw.WriteLine(result);
-            //    }               
-            //}
-            //sr.Close();
-            //sw.Close();
-            BiographiesActorList BAL = new BiographiesActorList(@"E:\Big movie files\biographies.list");
-            BAL.RunParser();
+            string result = string.Empty, line;
+            while ((line = sr.ReadLine()) != null)
+            {
+                Match m = Regex.Match(line, patternSeries, options);
+                if (m.Success)
+                {
+                    result = m.Value;
+                    result = regexPattern.Replace(result, substitutionSeries);
+                    result = Regex.Replace(result, @"\t+", ""); //om files tabs te removen
+                    sw.WriteLine(result);
+                }
+            }
+            sr.Close();
+            sw.Close();
+            //BiographiesActorList BAL = new BiographiesActorList(@"E:\Big movie files\biographies.list");
+            //BAL.RunParser();
             //Console.WriteLine(Environment.CurrentDirectory);
         }
     }

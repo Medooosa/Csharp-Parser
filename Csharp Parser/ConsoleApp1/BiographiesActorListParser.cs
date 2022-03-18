@@ -6,24 +6,28 @@ using System.Text.RegularExpressions;
 
 namespace ConsoleApp1
 {
-    public class BiographiesActorList
+    class BiographiesActorListParser
     {
-        string temp = string.Empty;
-        string BiographiesActorFileName = @"E:\Big movie files\biographies.list";
-        string editedActorBiographies = @"..\..\..\testfiles\editedactorbiographies.csv";
-        public BiographiesActorList(string fileLocation = @"E:\Big movie files\Csharp-Parser\Csharp Parser\ConsoleApp1\Biographiesactortestfile.txt")
+        private string testFile = @"E:\Big movie files\Csharp-Parser\Csharp Parser\ConsoleApp1\Biographiesactortestfile.txt";
+        private string fileLocation;
+        private string fileMap = @"..\..\..\testfiles\";
+        private string fileName = @"..\..\..\testfiles\editedactorbiographies.csv";
+        public BiographiesActorListParser(string fileLocation = @"E:\Big movie files\biographies.list")
         {
-            BiographiesActorFileName = fileLocation;
+            this.fileLocation = fileLocation;
         }
-        public void RunParser(string path = @"..\..\..\testfiles\editedactorbiographies.csv")
+        public string GetFileLocation { get { return fileLocation; } }
+        public string GetFileName { get { return fileName; } }
+        public void SetFileLocation(string fileLocation) { this.fileLocation = fileLocation; }
+        public void SetFileName(string fileName) { this.fileName = fileMap + fileName + "csv"; }
+        public void RunParser()
         {
             string line;
-            StreamReader sr = new StreamReader(BiographiesActorFileName, System.Text.Encoding.GetEncoding(28591));
-            StreamWriter sw = new StreamWriter(editedActorBiographies);
+            StreamReader sr = new StreamReader(fileLocation, System.Text.Encoding.GetEncoding(28591));
+            StreamWriter sw = new StreamWriter(fileName);
             string[] nameAndBirth = new string[2];
             while ((line = sr.ReadLine()) != null)
             {
-                int temp = line.Length;
                 if (line.StartsWith("-"))
                 {
                     if (nameAndBirth[1] != null)
