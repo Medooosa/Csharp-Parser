@@ -4,20 +4,17 @@ using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace ConsoleApp1
-{
-    public class BussinessMListParser{
-        string temp = string.Empty;
-        string BiographiesActorFileName = @"business.list";
-        string editedActorBiographies = @"business.csv";
-        public BussinessMListParser(string fileLocation){
-            BiographiesActorFileName = fileLocation;
+namespace ConsoleApp1 {
+
+    public class BussinessMListParser : ParserBase {
+        
+        public BussinessMListParser(string fileLocation = @"business.list", string newFileName = @"business.csv") : base(fileLocation, newFileName){
         }
 
-        public void RunParser(string fileLocation){
+        public override void RunParser(string fileLocation){
             string line;
-            StreamReader sr = new StreamReader(BiographiesActorFileName, System.Text.Encoding.GetEncoding(28591));
-            StreamWriter sw = new StreamWriter(editedActorBiographies);
+            StreamReader sr = new StreamReader(this.fileLocation, System.Text.Encoding.GetEncoding(28591));
+            StreamWriter sw = new StreamWriter(this.fileName);
             sw.WriteLine(string.Format("{0}¤{1}", "Name", "Budget"));
             string[] nameAndBudget = new string[2];
             while ((line = sr.ReadLine()) != null){
@@ -34,5 +31,6 @@ namespace ConsoleApp1
             sr.Close();
             sw.Close();
         }
+
     }
 }
