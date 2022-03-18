@@ -19,13 +19,15 @@ namespace ConsoleApp1
             string startLineSeries = "TITLE¤STARTYEAR¤TITLESERIES¤NOTE¤RUNTIMEYEAR/ENDYEAR";
             string editedMoviesCsv = @"..\..\..\testfiles\editedmovies.csv";
             string editedSeriesCsv = @"..\..\..\testfiles\editedseries.csv";
-            StreamReader sr = new StreamReader(movieActorFile, System.Text.Encoding.GetEncoding(28591));
+            RegexLocationMovies RLM = new RegexLocationMovies();
+            StreamReader sr = new StreamReader(RLM.GetFileLocation, System.Text.Encoding.GetEncoding(28591));
             StreamWriter sw = new StreamWriter(editedSeriesCsv);
 
             sw.WriteLine(startLineSeries);
 
             RegexOptions options = RegexOptions.Singleline;
             Regex regexPattern = new Regex(patternSeries, options);
+
 
             string result = string.Empty, line;
             while ((line = sr.ReadLine()) != null)

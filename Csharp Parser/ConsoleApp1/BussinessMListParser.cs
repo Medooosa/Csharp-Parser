@@ -6,11 +6,11 @@ using System.Text.RegularExpressions;
 
 namespace ConsoleApp1
 {
-    public class BiographiesBudgetList{
+    public class BussinessMListParser{
         string temp = string.Empty;
         string BiographiesActorFileName = @"business.list";
         string editedActorBiographies = @"business.csv";
-        public BiographiesBudgetList(string fileLocation){
+        public BussinessMListParser(string fileLocation){
             BiographiesActorFileName = fileLocation;
         }
 

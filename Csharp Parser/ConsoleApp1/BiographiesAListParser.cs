@@ -6,13 +6,13 @@ using System.Text.RegularExpressions;
 
 namespace ConsoleApp1
 {
-    class BiographiesActorListParser
+    class BiographiesAListParser
     {
         private string testFile = @"E:\Big movie files\Csharp-Parser\Csharp Parser\ConsoleApp1\Biographiesactortestfile.txt";
         private string fileLocation;
         private string fileMap = @"..\..\..\testfiles\";
         private string fileName = @"..\..\..\testfiles\editedactorbiographies.csv";
-        public BiographiesActorListParser(string fileLocation = @"E:\Big movie files\biographies.list")
+        public BiographiesAListParser(string fileLocation = @"E:\Big movie files\biographies.list")
         {
             this.fileLocation = fileLocation;
         }
