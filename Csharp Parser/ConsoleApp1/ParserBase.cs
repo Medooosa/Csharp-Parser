@@ -15,7 +15,7 @@ namespace ConsoleApp1 {
 
         public ParserBase(string fileLocation, string newFileName) {
             this.fileLocation = fileLocation;
-            fileName = fileMap + newFileName + ".csv";
+            fileName = fileMap + newFileName;
         }
 
         public virtual void RunParser(){
@@ -53,6 +53,6 @@ namespace ConsoleApp1 {
         public string GetFileLocation { get { return fileLocation; } }
         public string GetFileName { get { return fileName; } }
         public void SetFileLocation(string fileLocation) { this.fileLocation = fileLocation; }
-        public void SetFileName(string fileName) { this.fileName = fileMap + fileName + "csv"; }
+        public void SetFileName(string fileName) { this.fileName = fileMap + fileName; }
     }
 }

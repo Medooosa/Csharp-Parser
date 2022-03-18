@@ -9,8 +9,31 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            RegexLocationMovies RLM = new RegexLocationMovies();
-            RLM.RunParser();
+            ParserBase[] parsers = {
+                new BiographiesAListParser(),
+                new BussinessMListParser(),
+                new RegexCountries(),
+                new RegexGenreAdvanced(),
+                new RegexGenreSimple(),
+                new RegexLocationMovies(),
+                new RegexLocationSeries(),
+                new RegexMoviesParser(),
+                new RegexRatingsS(),
+                new RegexRatingsM(),
+                new RegexRunTimeMParser(),
+                new RegexRunTimeSParser(),
+                new RegexSeriesParser(),
+                new RegexWriters(),
+                new RegexActors(),
+                new RegexActress()
+            };
+            foreach (var parser in parsers)
+            {
+                parser.RunParser();
+                Console.WriteLine(parser.GetFileName + " is done");
+            }
+            //RegexLocationMovies RLM = new RegexLocationMovies();
+            //RLM.RunParser();
         }
     }
 }
