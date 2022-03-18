@@ -19,28 +19,32 @@ namespace ConsoleApp1 {
         }
 
         public virtual void RunParser(){
-            StreamReader sr = new StreamReader(this.fileLocation, System.Text.Encoding.GetEncoding(28591));
-            StreamWriter sw = new StreamWriter(this.fileName);
+            try{
+                StreamReader sr = new StreamReader(this.fileLocation, System.Text.Encoding.GetEncoding(28591));
+                StreamWriter sw = new StreamWriter(this.fileName);
 
-            sw.WriteLine(this.startLine);
+                sw.WriteLine(this.startLine);
 
-            RegexOptions options = RegexOptions.Singleline;
-            Regex regexPattern = new Regex(this.pattern, options);
+                RegexOptions options = RegexOptions.Singleline;
+                Regex regexPattern = new Regex(this.pattern, options);
 
-            string result = string.Empty, line;
-            while ((line = sr.ReadLine()) != null)
-            {
-                Match m = Regex.Match(line, this.pattern, options);
-                if (m.Success)
+                string result = string.Empty, line;
+                while ((line = sr.ReadLine()) != null)
                 {
-                    result = m.Value;
-                    result = regexPattern.Replace(result, this.substitution);
-                    result = Regex.Replace(result, @"\t+", ""); //om files tabs te removen
-                    sw.WriteLine(result);
+                    Match m = Regex.Match(line, this.pattern, options);
+                    if (m.Success)
+                    {
+                        result = m.Value;
+                        result = regexPattern.Replace(result, this.substitution);
+                        result = Regex.Replace(result, @"\t+", ""); //om files tabs te removen
+                        sw.WriteLine(result);
+                    }
                 }
+                sr.Close();
+                sw.Close();
+            }catch (Exception e){
+                Console.WriteLine(e.ToString());
             }
-            sr.Close();
-            sw.Close();
         }
 
         public string GetPattern { get { return pattern; } }
