@@ -11,7 +11,7 @@ namespace ConsoleApp1 {
         public BussinessMListParser(string fileLocation = @"business.list", string newFileName = @"business.csv") : base(fileLocation, newFileName){
         }
 
-        public override void RunParser(string fileLocation){
+        public override void RunParser(){
             string line;
             StreamReader sr = new StreamReader(this.fileLocation, System.Text.Encoding.GetEncoding(28591));
             StreamWriter sw = new StreamWriter(this.fileName);
