@@ -9,23 +9,26 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            //ParserBase[] parsers = {
+            //    new BiographiesAListParser(),
+            //    new BussinessMListParser(),
+            //    new RegexCountries(),
+            //    new RegexGenreAdvanced(),
+            //    new RegexGenreSimple(),
+            //    new RegexLocationMovies(),
+            //    new RegexLocationSeries(),
+            //    new RegexMoviesParser(),
+            //    new RegexRatingsS(),
+            //    new RegexRatingsM(),
+            //    new RegexRunTimeMParser(),
+            //    new RegexRunTimeSParser(),
+            //    new RegexSeriesParser(),
+            //    new RegexWriters(),
+            //    new RegexActors(),
+            //    new RegexActress()
+            //};
             ParserBase[] parsers = {
                 new BiographiesAListParser(),
-                new BussinessMListParser(),
-                new RegexCountries(),
-                new RegexGenreAdvanced(),
-                new RegexGenreSimple(),
-                new RegexLocationMovies(),
-                new RegexLocationSeries(),
-                new RegexMoviesParser(),
-                new RegexRatingsS(),
-                new RegexRatingsM(),
-                new RegexRunTimeMParser(),
-                new RegexRunTimeSParser(),
-                new RegexSeriesParser(),
-                new RegexWriters(),
-                new RegexActors(),
-                new RegexActress()
             };
             foreach (var parser in parsers)
             {
