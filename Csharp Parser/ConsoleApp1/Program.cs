@@ -28,7 +28,7 @@ namespace ConsoleApp1
             //    new RegexActress()
             //};
             ParserBase[] parsers = {
-                new RegexActors()
+                new RegexActress()
             };
             foreach (var parser in parsers)
             {

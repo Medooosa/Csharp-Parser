@@ -8,7 +8,7 @@ namespace ConsoleApp1
 {
     class RegexActors : ParserBase
     {
-        public RegexActors(string fileLocation = @"E:\Big movie files\actors.list", string newFileName = @"..\..\..\testfiles\editedactorstest.csv") : base(fileLocation, newFileName)
+        public RegexActors(string fileLocation = @"C:\Users\Gebruiker\Downloads\Actors.list", string newFileName = @"..\..\..\testfiles\editedactorstest.csv") : base(fileLocation, newFileName)
         {
             this.pattern = @"(^(.*)\t)(.*)(\([0-9,?,/,A-Z]{4,11}\))((.*)((\{.*\})|(\[.*\]))|())";
             this.substitution = "$2¤$3¤$4¤$6¤$9";
