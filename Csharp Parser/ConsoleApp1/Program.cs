@@ -28,9 +28,7 @@ namespace ConsoleApp1
             //    new RegexActress()
             //};
             ParserBase[] parsers = {
-                new RegexGenreAdvanced(),
-                new RegexGenreSimple(),
-                new RegexCountries()
+                new RegexActors()
             };
             foreach (var parser in parsers)
             {
