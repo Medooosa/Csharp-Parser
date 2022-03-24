@@ -28,7 +28,9 @@ namespace ConsoleApp1
             //    new RegexActress()
             //};
             ParserBase[] parsers = {
-                new BiographiesAListParser(),
+                new RegexGenreAdvanced(),
+                new RegexGenreSimple(),
+                new RegexCountries()
             };
             foreach (var parser in parsers)
             {

@@ -6,10 +6,10 @@ namespace ConsoleApp1
 {
     class RegexGenreSimple : ParserBase
     {
-        public RegexGenreSimple(string fileLocation = @"E:\Big movie files\genres.list", string newFileName = @"..\..\..\testfiles\editedgenresS.csv") : base(fileLocation, newFileName)
+        public RegexGenreSimple(string fileLocation = @"E:\Big movie files\genres.list", string newFileName = @"..\..\..\testfiles\editedgenresSimple.csv") : base(fileLocation, newFileName)
         {
-            this.pattern = @"(.*)(\([0-9,?,/,A-Z]{4,11}\))(.({.*})|())\t+(.*)";
-            this.substitution = "$1¤$2¤$6";
+            this.pattern = @"(\""(.*)\""|(.*))\s+(\([0-9,?,/,A-Z]{4,11}\))(.({.*})|())\t+(.*)";
+            this.substitution = "$2$3¤$4¤$8";
             this.startLine = "MOVIEORSHOWNAME¤DATE¤GENRE";
             this.fileMap = @"..\..\..\testfiles\";
         }
