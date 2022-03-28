@@ -8,7 +8,7 @@ namespace ConsoleApp1 {
 
     public class BussinessMListParser : ParserBase {
         
-        public BussinessMListParser(string fileLocation = @"C:\projects\DataScience\Csharp-Parser\Csharp Parser\ConsoleApp1\business.list", string newFileName = "business.csv") : base(fileLocation, newFileName){
+        public BussinessMListParser(string fileLocation = @"E:\Big movie files\business.list", string newFileName = @"..\..\..\testfiles\editedbussiness.csv") : base(fileLocation, newFileName){
             this.fileMap = @"..\..\..\testfiles\";
         }
 

@@ -11,8 +11,8 @@ namespace ConsoleApp1{
         public BiographiesAListParser(string fileLocation = @"E:\Big movie files\biographies.list", string newFileName = @"..\..\..\testfiles\editedactorbiographies.csv") : base(fileLocation, newFileName) {
             this.fileMap = @"..\..\..\testfiles\";
         }
-
-        public override void RunParser(){
+        public override void RunParser()
+        {
             try
             {
                 string line;

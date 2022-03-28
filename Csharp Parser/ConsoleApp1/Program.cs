@@ -12,7 +12,7 @@ namespace ConsoleApp1
             //ParserBase[] parsers = {
             //    new BiographiesAListParser(),
             //    new BussinessMListParser(),
-            //    new RegexCountries(),
+            //    new RegexCountriesSeries(),
             //    new RegexGenreAdvanced(),
             //    new RegexGenreSimple(),
             //    new RegexLocationMovies(),
@@ -28,7 +28,8 @@ namespace ConsoleApp1
             //    new RegexActress()
             //};
             ParserBase[] parsers = {
-                new RegexActress()
+               new RegexActress(),
+               new RegexActors(),
             };
             foreach (var parser in parsers)
             {
@@ -40,10 +41,3 @@ namespace ConsoleApp1
         }
     }
 }
-//foreach (Match m in Regex.Matches(lineInput, pattern, options))
-//{
-//    result = m.Value + '\n';
-//    result = regexPattern.Replace(result, substitution);
-//    result = Regex.Replace(result, @"\t+", "");
-//    File.AppendAllText(@"..\..\..\testfiles\editedmovies.csv", result);
-//}
